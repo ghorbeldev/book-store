@@ -1,13 +1,198 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: Verdana, Geneva, sans-serif;
+  box-sizing: border-box;
+  font-weight: 500;
+  outline: none;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.app {
+  background-color: #f1f1f1;
+  max-width: 650px;
+  padding: 20px;
+}
+.toggle {
+  border: none;
+  position: absolute;
+  transition: all 0.4s;
+  top: 20px;
+  right: 20px;
+  padding: 0.7em 1.25em;
+  width: 80px;
+  height: 40px;
+  border-radius: 45%;
+  background: #000;
+  overflow: hidden;
+}
+.toggle::after {
+  content: "";
+  transition: all 0.4s;
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+}
+.toggle.dark {
+  background: #fff;
+}
+.toggle.dark::after {
+  background: #000;
+  left: calc(100% - 35px);
+}
+form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 10px;
+}
+form .title {
+  width: 100%;
+  color: #333;
+  letter-spacing: 3px;
+  margin: 5px 0;
+}
+form .input-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+form .input-container label,
+form .input-container input {
+  width: 100%;
+  transition: all 0.3s;
+}
+form .input-container label {
+  font-size: 1em;
+  color: #336;
+}
+form .input-container input {
+  padding: 1.5px;
+}
+form .input-container input:focus {
+  border: 1px solid #00bbd8;
+}
+form button {
+  width: 100%;
+  border: 0.1em solid #333;
+  color: #333;
+  background: #fff;
+  padding: 0.7em 1.2em;
+  text-align: center;
+  transition: all 0.2s;
+  border-radius: 0.12em;
+  cursor: pointer;
+  font-weight: 550;
+}
+form button:hover {
+  border: 0.1em solid #fff;
+  color: #fff;
+  background: #333;
+}
+.books {
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+.row {
+  display: grid;
+  width: 100%;
+  padding: 10px 0;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  position: relative;
+}
+
+.row h3 {
+  text-transform: capitalize;
+  font-size: 1.4em;
+  color: #1a1818;
+  font-weight: 550;
+}
+.row span {
+  text-transform: capitalize;
+  font-size: 1.1em;
+  color: #333;
+}
+.row:not(:last-child) {
+  border-bottom: 1px solid #999;
+}
+.row button {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  cursor: pointer;
+}
+.row button svg {
+  width: 15px;
+  height: 15px;
+  transition: all 0.3s;
+}
+.row button:hover svg {
+  fill: #13b2ca;
+}
+.clear {
+  border: 1px solid #1a1818;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0.7em 1.3em;
+  color: #333;
+  font-size: 1em;
+  font-weight: 550;
+  cursor: pointer;
+  border-radius: 0.12em;
+  transition: all 0.3s;
+}
+.clear:hover {
+  color: #f1f1f1;
+  border: 1px solid #f1f1f1;
+  background: #1a1818;
 }
